@@ -1,0 +1,18 @@
+﻿  main.cpp
+C:\Users\gj2ma\source\repos\timer\timer\main.cpp(183,47): warning C4244: '引数': 'double' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\gj2ma\source\repos\timer\timer\main.cpp(183,27): warning C4244: '引数': 'double' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\gj2ma\source\repos\timer\timer\main.cpp(284,10): warning C4244: '=': 'double' から 'INT' への変換です。データが失われる可能性があります。
+C:\Users\gj2ma\source\repos\timer\timer\main.cpp(285,10): warning C4244: '=': 'double' から 'INT' への変換です。データが失われる可能性があります。
+C:\Users\gj2ma\source\repos\timer\timer\main.cpp(286,10): warning C4244: '=': 'double' から 'INT' への変換です。データが失われる可能性があります。
+C:\Users\gj2ma\source\repos\timer\timer\main.cpp(287,10): warning C4244: '=': 'double' から 'INT' への変換です。データが失われる可能性があります。
+C:\Users\gj2ma\source\repos\timer\timer\main.cpp(317,49): warning C4244: '引数': 'double' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\gj2ma\source\repos\timer\timer\main.cpp(317,29): warning C4244: '引数': 'double' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\gj2ma\source\repos\timer\timer\main.cpp(326,49): warning C4244: '引数': 'double' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\gj2ma\source\repos\timer\timer\main.cpp(326,29): warning C4244: '引数': 'double' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\gj2ma\source\repos\timer\timer\main.cpp(335,49): warning C4244: '引数': 'double' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\gj2ma\source\repos\timer\timer\main.cpp(335,29): warning C4244: '引数': 'double' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\gj2ma\source\repos\timer\timer\main.cpp(344,49): warning C4244: '引数': 'double' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\gj2ma\source\repos\timer\timer\main.cpp(344,29): warning C4244: '引数': 'double' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\gj2ma\source\repos\timer\timer\main.cpp(260,12): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\gj2ma\source\repos\timer\timer\main.cpp(276,7): warning C4996: 'fscanf': This function or variable may be unsafe. Consider using fscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  timer.vcxproj -> C:\Users\gj2ma\source\repos\timer\Debug\timer.exe

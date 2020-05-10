@@ -1,0 +1,179 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%	Shima Laboratory Thesis Style
+%
+%	2015/02/04	Ver. 1.00
+%  2015/02/05	図番の不具合を修正．Ver1.01
+%	Keisuke SHIMA
+%  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input jreport.sty
+
+%=============================================================================
+%=============================================================================
+% titlepage from:
+%-----------------------------------------------------------------------------
+
+\def\maketitle{{
+\def\baselinestretch{1}
+\begin{titlepage}
+ \pagestyle{empty}
+  \let\footnotesize\small \let\footnoterule\relax \setcounter{page}{0}
+%  \null
+  \vfil
+  \vskip 60pt
+  \begin{center}
+    {\LARGE\bf\@thesis \par} \vskip 3em
+    {\LARGE\bf\@title \par} \vskip 6em
+    {\large \lineskip .75em
+   % \vskip 6em
+    \vfill 
+    {\large 指導教官 \@professor \par}
+    \vskip 3em
+    {\large \@date \par}
+    \vskip 3em
+    \begin{tabular}[t]{c}
+      \@author
+    \end{tabular}\par}
+  \end{center}
+  \par
+  \@thanks
+  \vfil
+  \null
+  \end{titlepage}
+  \setcounter{footnote}{0} \let\thanks\relax
+  \gdef\@thanks{}\gdef\@author{}\gdef\@title{}\let\maketitle\relax}}
+\def\jabstract{\titlepage
+  \null
+% \vfil
+% \begin{center}
+  \noindent{\large\bf あらまし\par}
+  
+  \vspace{3mm}
+% \end{center}
+}
+\def\endjabstract{\par\vfil\null\endtitlepage}
+\def\abstract{\titlepage
+  \null
+% \vfil
+% \begin{center}
+  \noindent{\large\bf Abstract\par}
+  \vspace{3mm}
+% \end{center}
+}
+\def\endabstract{\par\vfil\null\endtitlepage}
+%
+\def\professor#1{\gdef\@professor{#1}}
+\def\thesis#1{\gdef\@thesis{#1}}
+
+\setlength{\topmargin}{10mm}		% 上からヘッダまでの長さ
+\setlength{\headheight}{5mm}		% ヘッダの長さ
+\setlength{\headsep}{5mm}		% ヘッダと本文の距離
+\setlength{\footskip}{25mm}		% 本文とフッタの距離
+\setlength{\footheight}{20mm}		% フッタの長さ
+\setlength{\textwidth}{145mm}		% 本文の幅
+\setlength{\textheight}{210mm}		% 本文の高さ
+\setlength{\oddsidemargin}{13mm}	% 奇数ページの左から本文までの距離
+\setlength{\evensidemargin}{13mm}	% 偶数ページの左から本文までの距離
+
+\setcounter{topnumber}{3}
+\def\topfraction{.9}
+\setcounter{bottomnumber}{1}
+\def\bottomfraction{.1}
+\setcounter{totalnumber}{4}
+\def\textfraction{.1}
+\def\floatpagefraction{.9}
+\newcommand{\bm}[1]{\mbox{\boldmath $#1$}}
+
+\makeatletter
+\def\@cite#1#2{$^{\hbox{\scriptsize{#1\if@tempswa , #2\fi})}}$}
+
+\long\def\@makecaption#1#2{
+\vskip 5pt   % \vskip 10pt 
+\setbox\@tempboxa\hbox{#1: #2}
+\ifdim \wd\@tempboxa >\hsize #1: #2\par
+\else \hbox to\hsize{\hfil\box\@tempboxa\hfil} 
+\fi
+}
+\def\ynu_abstract{\pagestyle{empty}}
+
+%===================
+\def\ps@sron{\let\@mkboth\@gobbletwo
+     \def\@oddhead{}\def\@oddfoot{\rm \hfil -- \thepage \ --
+	 \hfil}\def\@evenhead{}\let\@evenfoot\@oddfoot}
+%===================
+
+\def\ps@myheadings{\let\@mkboth\@gobbletwo
+\def\@oddhead{\hbox{}\sl\rightmark \hfil
+\rm\thepage}\def\@oddfoot{}\def\@evenhead{\rm \thepage\hfil\sl\leftmark\hbox
+{}}\def\@evenfoot{}\def\chaptermark##1{}%
+}
+
+\ps@sron \pagenumbering{arabic} \onecolumn \if@twoside\else\raggedbottom\fi 
+\pagestyle{sron}
+
+%\input{epsf.sty}
+\def\frontmatter{\pagestyle{sron}\pagenumbering{roman}\setcounter{page}{1}}
+\def\maindocument{\pagestyle{sron}\pagenumbering{arabic}\setcounter{page}{1}}
+\def\thanks{\newpage\addcontentsline{toc}{chapter}{謝辞}}
+\def\references{\newpage\addcontentsline{toc}{chapter}{参考文献}}
+\def\publish{\newpage\addcontentsline{toc}{chapter}{本研究に関する発表}}
+\def\appendix{\newpage\addcontentsline{toc}{chapter}{付録}\def\thesection{\Alph{section}}
+	\def\theequation{\mbox{\rm \thesection --\arabic{equation}}}}
+
+\def\listofallcontents{\tableofcontents\newpage\listoffigures\newpage\listoftables\newpage}
+
+\def\thebibliography#1{\chapter*{参考文献\markboth
+ {参 考 文 献}{参 考 文 献}}\list
+ {[\arabic{enumi}]}{\settowidth\labelwidth{[#1]}\leftmargin\labelwidth
+ \advance\leftmargin\labelsep
+ \usecounter{enumi}}
+ \def\newblock{\hskip .11em plus .33em minus .07em}
+ \sloppy
+ \sfcode`\.=1000\relax\small
+\baselineskip=10pt}
+\let\endthebibliography=\endlist
+
+%\def\thefigure{\@arabic\c@figure}
+   
+\def\fps@figure{tbp}
+\def\ftype@figure{1}
+\def\ext@figure{lof}
+%\def\fnum@figure{Figure \thefigure}
+\def\fnum@figure{Fig. \thefigure}
+\def\figure{\@float{figure}}
+\let\endfigure\end@float
+\@namedef{figure*}{\@dblfloat{figure}}
+\@namedef{endfigure*}{\end@dblfloat}
+
+\def\thetable{\@arabic\c@table}
+\def\fps@table{tbp}
+\def\ftype@table{2}
+\def\ext@table{lot}
+%\def\fnum@table{Table \thetable}
+\def\fnum@table{Table \thetable}
+\def\table{\@float{table}}
+\let\endtable\end@float
+\@namedef{table*}{\@dblfloat{table}}
+\@namedef{endtable*}{\end@dblfloat}
+
+
+\def\section{\@startsection {section}{1}{\z@}{3.5ex plus 1ex minus 
+ .2ex}{2.3ex plus .2ex}{\Large\bf}}
+\def\subsection{\@startsection{subsection}{2}{\z@}{3.25ex plus 1ex minus 
+ .2ex}{1.5ex plus .2ex}{\large\bf}}
+\def\subsubsection{\@startsection{subsubsection}{2}{\z@}{3.25ex plus 
+ 1ex minus .2ex}{1.5ex plus .2ex}{\normalsize\bf}}
+\def\paragraph{\@startsection
+ {paragraph}{4}{\z@}{3.25ex plus 1ex minus .2ex}{-1em}{\normalsize\bf}}
+\def\subparagraph{\@startsection
+ {subparagraph}{4}{\parindent}{3.25ex plus 1ex minus 
+ .2ex}{-1em}{\normalsize\bf}}
+
+\renewcommand{\thesubsubsection}{\Alph{subsubsection}} 
+
+
+\def\theequation{\mbox{\rm \thechapter --\arabic{equation}}}
+
+\def\part{\cleardoublepage \thispagestyle{sron} \if@twocolumn \onecolumn
+\@tempswatrue \else \@tempswafalse \fi \hbox{}\vfil \secdef\@part\@spart} 
+
